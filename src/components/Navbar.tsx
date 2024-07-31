@@ -43,7 +43,7 @@ const Navbar = () => {
               <FaBuilding />
               <span>Properties</span>
             </NavLink>
-            <NavLink href="/interior">
+            <NavLink href="/interiors">
               <FaCouch />
               <span>Interior</span>
             </NavLink>
@@ -92,7 +92,7 @@ const Navbar = () => {
               <FaBuilding />
               <span>Properties</span>
             </MobileNavLink>
-            <MobileNavLink href="/interior">
+            <MobileNavLink href="/interiors">
               <FaCouch />
               <span>Interior</span>
             </MobileNavLink>
