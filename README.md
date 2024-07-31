@@ -1,4 +1,4 @@
-# Build It
+# BuildIt
 
 Welcome to [Build It ](https://builditwebsite.vercel.app/), your premier destination for construction, interior design, and real estate services. Our expert team is committed to delivering high-quality results, whether you're building a new property, remodeling an existing space, or exploring real estate investment opportunities.
 
@@ -59,8 +59,7 @@ To get started with the project locally, follow these steps:
 
 2. Install dependencies:
 
-
-    bun install
+   bun install
 
 3. Set up environment variables:
 
