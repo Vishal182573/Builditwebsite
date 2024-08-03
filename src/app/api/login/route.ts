@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     username === process.env.ADMIN_NAME &&
     password === process.env.ADMIN_PASSWORD
   ) {
-    cookies().set("admin_token", process.env.SECRET_KEY, {
+    cookies().set("admin_token", "secret-key", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
