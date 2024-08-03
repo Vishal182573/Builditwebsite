@@ -43,3 +43,9 @@ a.txt
 .next
 
 .dist
+
+
+.env
+
+
+.env.local

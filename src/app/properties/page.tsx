@@ -19,6 +19,7 @@ import {
   Star,
   TrendingUp,
 } from "lucide-react";
+import { FaHandPointUp } from "react-icons/fa";
 
 const propertyCategories = [
   {
@@ -82,47 +83,6 @@ export default function PropertiesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <header className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white py-32 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern opacity-10"></div>
-        <motion.div
-          className="max-w-7xl mx-auto text-center relative z-10"
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-        >
-          <motion.h1
-            className="text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200"
-            variants={fadeInUp}
-          >
-            Discover Your Next Investment
-          </motion.h1>
-          <motion.p
-            className="text-2xl mb-10 text-blue-100"
-            variants={fadeInUp}
-          >
-            Explore prime properties and development opportunities with BuildIt
-          </motion.p>
-          <motion.div
-            className="flex justify-center space-x-4"
-            variants={fadeInUp}
-          >
-            <div className="relative w-2/3">
-              <Input
-                className="w-full text-gray-900 pl-12 py-6 text-lg rounded-full shadow-lg"
-                placeholder="Search by location, type, or keyword"
-              />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-6" />
-            </div>
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 rounded-full py-6 px-8 text-lg font-semibold shadow-lg"
-            >
-              Search Properties
-            </Button>
-          </motion.div>
-        </motion.div>
-      </header>
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Tabs defaultValue="Development Sites" className="w-full mb-16">
           <TabsList className="grid w-full grid-cols-3 gap-4 bg-transparent p-2">
@@ -285,7 +245,8 @@ export default function PropertiesPage() {
               size="lg"
               className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 py-8 px-12 text-xl font-semibold rounded-full shadow-lg transform hover:scale-105"
             >
-              Schedule a Consultation <ArrowRight className="ml-2 h-6 w-6" />
+              See our gallery to view more properties and interiors
+              <FaHandPointUp className="ml-2 h-6 w-6" />
             </Button>
           </motion.div>
         </div>

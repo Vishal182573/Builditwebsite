@@ -96,49 +96,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <header className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern opacity-10"></div>
-        <motion.div
-          className="max-w-7xl mx-auto text-center relative z-10"
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-        >
-          <motion.h1
-            className="text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200"
-            variants={fadeInUp}
-          >
-            Build Your Dreams with BUILDIT
-          </motion.h1>
-          <motion.p
-            className="text-2xl mb-10 text-blue-100"
-            variants={fadeInUp}
-          >
-            Creating exceptional spaces in Hyderabad and beyond
-          </motion.p>
-          <motion.div
-            className="flex justify-center space-x-4"
-            variants={fadeInUp}
-          >
-            <div className="relative w-2/3">
-              <Input
-                className="w-full text-gray-900 pl-12 py-6 text-lg rounded-full shadow-lg"
-                placeholder="Enter location, property type, or keyword"
-              />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-6" />
-            </div>
-            <MotionButton
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 rounded-full py-6 px-8 text-lg font-semibold shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Search Properties
-            </MotionButton>
-          </motion.div>
-        </motion.div>
-      </header>
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <section className="mb-24">
           <motion.h2
@@ -439,7 +396,9 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get in Touch <ArrowRight className="ml-2 h-6 w-6" />
+              <Link href="/enquiry">Get in Touch</Link>
+
+              <ArrowRight className="ml-2 h-6 w-6" />
             </MotionButton>
           </motion.div>
         </section>

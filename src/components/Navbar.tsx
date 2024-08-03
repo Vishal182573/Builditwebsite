@@ -59,12 +59,12 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button
               onClick={() => {
-                router.push("/login");
+                router.push("/enquiry");
               }}
               className="flex items-center space-x-2 font-semibold"
             >
               <FaUserCircle size={20} />
-              <span>Login / Register</span>
+              <span>Enquiry form</span>
             </Button>
           </div>
           <div className="md:hidden flex items-center">
@@ -109,12 +109,12 @@ const Navbar = () => {
             <div className="flex items-center px-5">
               <Button
                 onClick={() => {
-                  router.push("/login");
+                  router.push("/enquiry");
                 }}
                 className="w-full font-semibold flex items-center justify-center space-x-2"
               >
                 <FaUserCircle size={20} />
-                <span>Login / Register</span>
+                <span>Enquiry form</span>
               </Button>
             </div>
           </div>
