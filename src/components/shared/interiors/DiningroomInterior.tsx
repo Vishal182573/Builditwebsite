@@ -16,7 +16,6 @@ import Image from "next/image";
 import { DiningRoomItem } from "@/types/types";
 
 const DiningRoomCard: React.FC<{ item: DiningRoomItem }> = ({ item }) => {
-  const [isBookmarked, setIsBookmarked] = React.useState(false);
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
@@ -51,16 +50,6 @@ const DiningRoomCard: React.FC<{ item: DiningRoomItem }> = ({ item }) => {
           <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
           <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute top-2 right-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40"
-          onClick={() => setIsBookmarked(!isBookmarked)}
-        >
-          <FaBookmark
-            className={isBookmarked ? "text-yellow-500" : "text-white"}
-          />
-        </Button>
         <Badge
           className={`absolute bottom-2 left-2 ${
             styleColors[item.style as keyof typeof styleColors]

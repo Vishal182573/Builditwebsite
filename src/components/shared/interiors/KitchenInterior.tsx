@@ -21,7 +21,6 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 const KitchenCard: React.FC<{ item: KitchenItem }> = ({ item }) => {
-  const [isFavorite, setIsFavorite] = React.useState(false);
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
@@ -53,23 +52,6 @@ const KitchenCard: React.FC<{ item: KitchenItem }> = ({ item }) => {
           <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
           <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
-        <div className="absolute top-2 right-2 flex space-x-2">
-          <Button
-            size="icon"
-            variant="secondary"
-            className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40"
-            onClick={() => setIsFavorite(!isFavorite)}
-          >
-            <FaHeart className={isFavorite ? "text-red-500" : "text-white"} />
-          </Button>
-          <Button
-            size="icon"
-            variant="secondary"
-            className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40"
-          >
-            <FaShareAlt className="text-white" />
-          </Button>
-        </div>
         <Badge
           className="absolute bottom-2 left-2 bg-white/20 backdrop-blur-sm text-white"
           variant="secondary"
@@ -218,35 +200,7 @@ const KitchenInterior: React.FC = () => {
       features: ["Terracotta Tiles", "Archways", "Hand-Painted Backsplash"],
       rating: 4.6,
       reviews: 105,
-    },
-    {
-      id: 9,
-      name: "Bohemian Chic",
-      price: "$4,300",
-      images: [
-        "https://picsum.photos/200/300?random=25",
-        "https://picsum.photos/200/300?random=26",
-        "https://picsum.photos/200/300?random=27",
-      ],
-      description: "Eclectic design with bohemian elements.",
-      features: ["Colorful Tiles", "Open Shelving", "Vintage Decor"],
-      rating: 4.5,
-      reviews: 93,
-    },
-    {
-      id: 10,
-      name: "Coastal Breeze",
-      price: "$4,600",
-      images: [
-        "https://picsum.photos/200/300?random=28",
-        "https://picsum.photos/200/300?random=29",
-        "https://picsum.photos/200/300?random=30",
-      ],
-      description: "Light and breezy design with coastal elements.",
-      features: ["Blue Accents", "Rattan Furniture", "Seashell Decor"],
-      rating: 4.7,
-      reviews: 114,
-    },
+    }
   ];
 
   return (

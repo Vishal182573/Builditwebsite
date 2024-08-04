@@ -28,7 +28,7 @@ const LivingRoomCard: React.FC<{ item: LivingRoomItem }> = ({ item }) => {
   };
 
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 max-w-sm h-[450px] flex flex-col">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 max-w-sm h-[400px] flex flex-col">
       <CardHeader className="p-0 relative">
         <Carousel plugins={[plugin.current]} className="w-full">
           <CarouselContent>
@@ -197,33 +197,7 @@ const LivingRoomCatalog: React.FC = () => {
       style: "Farmhouse",
       size: "450 sq ft",
       features: ["Shiplap Walls", "Cozy Furniture", "Natural Textures"],
-    },
-    {
-      id: 9,
-      name: "Luxury Lounge",
-      images: [
-        "https://picsum.photos/200/300?random=67",
-        "https://picsum.photos/200/300?random=68",
-        "https://picsum.photos/200/300?random=69",
-      ],
-      description: "Luxurious living room with high-end finishes.",
-      style: "Luxury",
-      size: "600 sq ft",
-      features: ["Marble Floors", "High-End Furniture", "Chandelier"],
-    },
-    {
-      id: 10,
-      name: "Retro Vibes",
-      images: [
-        "https://picsum.photos/200/300?random=70",
-        "https://picsum.photos/200/300?random=71",
-        "https://picsum.photos/200/300?random=72",
-      ],
-      description: "Fun and funky living room with retro decor.",
-      style: "Retro",
-      size: "400 sq ft",
-      features: ["Bold Colors", "Vintage Accessories", "Unique Furniture"],
-    },
+    }
   ];
 
   return (

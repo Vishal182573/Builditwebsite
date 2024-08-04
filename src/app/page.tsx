@@ -170,14 +170,6 @@ export default function Home() {
                           {properties[currentSlide].area} sqft
                         </span>
                       </div>
-                      <MotionButton
-                        size="lg"
-                        className="bg-blue-600 hover:bg-blue-700 text-white"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        View Property
-                      </MotionButton>
                     </motion.div>
                   </CardContent>
                 </Card>
@@ -250,14 +242,6 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-bold text-gray-800">Our Projects</h2>
-            <MotionButton
-              variant="outline"
-              className="text-blue-600 hover:bg-blue-50"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View All <ArrowRight className="ml-2 h-5 w-5" />
-            </MotionButton>
           </motion.div>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -303,13 +287,6 @@ export default function Home() {
                       <Square className="mr-2" size={20} /> {property.area} sqft
                     </span>
                   </div>
-                  <MotionButton
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Details
-                  </MotionButton>
                 </CardFooter>
               </MotionCard>
             ))}

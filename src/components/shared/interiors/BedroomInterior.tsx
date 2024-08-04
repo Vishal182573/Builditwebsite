@@ -16,7 +16,6 @@ import Image from "next/image";
 import { BedroomItem } from "@/types/types";
 
 const BedroomCard: React.FC<{ item: BedroomItem }> = ({ item }) => {
-  const [isLiked, setIsLiked] = React.useState(false);
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
@@ -51,14 +50,6 @@ const BedroomCard: React.FC<{ item: BedroomItem }> = ({ item }) => {
           <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
           <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute top-2 right-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40"
-          onClick={() => setIsLiked(!isLiked)}
-        >
-          <FaStar className={isLiked ? "text-yellow-500" : "text-white"} />
-        </Button>
         <Badge
           className={`absolute bottom-2 left-2 ${
             themeColors[item.theme as keyof typeof themeColors]
@@ -237,36 +228,6 @@ const BedroomInterior: React.FC = () => {
       bedSize: "King",
       theme: "Modern",
       rating: 4.9,
-    },
-    {
-      id: 9,
-      name: "Vintage Charm",
-      price: "$3,700",
-      images: [
-        "https://picsum.photos/200/300?random=61",
-        "https://picsum.photos/200/300?random=62",
-        "https://picsum.photos/200/300?random=63",
-      ],
-      description: "Charming bedroom with vintage decor and details.",
-      features: ["Antique Furniture", "Pastel Colors", "Patterned Wallpaper"],
-      bedSize: "Queen",
-      theme: "Vintage",
-      rating: 4.6,
-    },
-    {
-      id: 10,
-      name: "Urban Chic",
-      price: "$4,800",
-      images: [
-        "https://picsum.photos/200/300?random=64",
-        "https://picsum.photos/200/300?random=65",
-        "https://picsum.photos/200/300?random=66",
-      ],
-      description: "Stylish bedroom with an urban chic aesthetic.",
-      features: ["City Views", "Modern Art", "Sleek Furniture"],
-      bedSize: "King",
-      theme: "Urban",
-      rating: 4.8,
     },
   ];
 

@@ -104,7 +104,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Non-woven",
       colors: ["green", "pink", "yellow"],
-      features: ["Washable", "Pre-pasted", "Easy to Remove"],
+      features: ["Washable", "Pre-pasted"],
     },
     {
       id: 2,
@@ -120,7 +120,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Vinyl",
       colors: ["gray", "white", "black"],
-      features: ["Scrubbable", "Strippable", "Paste Required"],
+      features: ["Scrubbable", "Paste Required"],
     },
     {
       id: 3,
@@ -135,7 +135,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Paper",
       colors: ["blue", "white"],
-      features: ["Pre-pasted", "Strippable", "Washable"],
+      features: ["Pre-pasted", "Washable"],
     },
     {
       id: 4,
@@ -150,7 +150,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Vinyl",
       colors: ["blue", "gray", "white"],
-      features: ["Scrubbable", "Strippable", "Paste Required"],
+      features: ["Scrubbable", "Paste Required"],
     },
     {
       id: 5,
@@ -165,7 +165,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Non-woven",
       colors: ["beige", "white", "gray"],
-      features: ["Washable", "Strippable", "Paste Required"],
+      features: ["Washable", "Paste Required"],
     },
     {
       id: 6,
@@ -180,7 +180,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Paper",
       colors: ["red", "green", "black"],
-      features: ["Pre-pasted", "Strippable", "Washable"],
+      features: ["Pre-pasted", "Washable"],
     },
     {
       id: 7,
@@ -195,7 +195,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Vinyl",
       colors: ["gray", "white"],
-      features: ["Scrubbable", "Strippable", "Paste Required"],
+      features: ["Scrubbable", "Paste Required"],
     },
     {
       id: 8,
@@ -210,7 +210,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Paper",
       colors: ["blue", "gold", "white"],
-      features: ["Pre-pasted", "Strippable", "Washable"],
+      features: ["Pre-pasted",  "Washable"],
     },
     {
       id: 9,
@@ -225,7 +225,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Vinyl",
       colors: ["white", "black"],
-      features: ["Scrubbable", "Strippable", "Paste Required"],
+      features: ["Scrubbable", "Paste Required"],
     },
     {
       id: 10,
@@ -240,7 +240,7 @@ const WallpaperCatalog: React.FC = () => {
       rollSize: "20.5\" x 33'",
       material: "Non-woven",
       colors: ["green", "white"],
-      features: ["Washable", "Pre-pasted", "Easy to Remove"],
+      features: ["Washable","Easy to Remove"],
     },
   ];
 

@@ -20,6 +20,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { FaHandPointUp } from "react-icons/fa";
+import Link from "next/link";
 
 const propertyCategories = [
   {
@@ -144,9 +145,6 @@ export default function PropertiesPage() {
                             {(property.price / property.area).toFixed(2)}/sqft
                           </span>
                         </div>
-                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg rounded-xl shadow-md transition-all duration-300 transform hover:scale-105">
-                          View Details
-                        </Button>
                       </CardFooter>
                     </Card>
                   </motion.div>
@@ -154,21 +152,6 @@ export default function PropertiesPage() {
             </div>
           </motion.div>
         </AnimatePresence>
-
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-blue-600 hover:bg-blue-50 border-blue-600 py-6 px-10 text-lg rounded-full shadow-md transition-all duration-300 transform hover:scale-105"
-          >
-            Load More Properties <ArrowRight className="ml-2 h-6 w-6" />
-          </Button>
-        </motion.div>
       </main>
 
       <section className="bg-gradient-to-b from-gray-100 to-white py-32">
@@ -241,13 +224,15 @@ export default function PropertiesPage() {
               Contact our team of experts to start your property investment
               journey today.
             </p>
+            <Link href={"gallery-interior"}>
             <Button
               size="lg"
               className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 py-8 px-12 text-xl font-semibold rounded-full shadow-lg transform hover:scale-105"
             >
-              See our gallery to view more properties and interiors
+              See our gallery to view more properties 
               <FaHandPointUp className="ml-2 h-6 w-6" />
             </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

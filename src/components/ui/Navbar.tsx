@@ -10,9 +10,9 @@ import {
   FaServicestack,
   FaBuilding,
   FaCouch,
+  FaPhone,
   FaInfoCircle,
   FaUserCircle,
-  FaBath,
 } from "react-icons/fa";
 
 // Importing React Icons
@@ -47,8 +47,8 @@ const Navbar = () => {
               <FaCouch />
               <span>Gallery</span>
             </NavLink>
-            <NavLink href="/interiors">
-              <FaBath />
+            <NavLink href="/interior">
+              <FaPhone />
               <span>Interior</span>
             </NavLink>
             <NavLink href="/about">
@@ -96,8 +96,8 @@ const Navbar = () => {
               <FaCouch />
               <span>Gallery</span>
             </MobileNavLink>
-            <MobileNavLink href="/interiors">
-              <FaBath/>
+            <MobileNavLink href="/interior">
+              <FaPhone />
               <span>Interior</span>
             </MobileNavLink>
             <MobileNavLink href="/about">

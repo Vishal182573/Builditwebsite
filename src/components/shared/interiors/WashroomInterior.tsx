@@ -16,7 +16,6 @@ import Image from "next/image";
 import { WashroomItem } from "@/types/types";
 
 const WashroomCard: React.FC<{ item: WashroomItem }> = ({ item }) => {
-  const [isLiked, setIsLiked] = React.useState(false);
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
@@ -51,14 +50,6 @@ const WashroomCard: React.FC<{ item: WashroomItem }> = ({ item }) => {
           <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
           <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute top-2 right-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40"
-          onClick={() => setIsLiked(!isLiked)}
-        >
-          <FaStar className={isLiked ? "text-yellow-500" : "text-white"} />
-        </Button>
         <Badge
           className={`absolute bottom-2 left-2 ${
             themeColors[item.theme as keyof typeof themeColors]
@@ -232,23 +223,7 @@ const WashroomInterior: React.FC = () => {
       bathType: "Full Bath",
       theme: "Modern",
       rating: 4.8,
-    },
-    {
-      id: 9,
-      name: "Natural Retreat",
-      price: "$2,800",
-      images: [
-        "https://picsum.photos/200/300?random=75",
-        "https://picsum.photos/200/300?random=76",
-        "https://picsum.photos/200/300?random=77",
-      ],
-      description: "Washroom with natural elements and earthy tones.",
-      features: ["Wooden Accents", "Green Plants", "Stone Countertops"],
-      bathType: "Full Bath",
-      theme: "Minimalist",
-      rating: 4.7,
-    },
-    // Add more washroom items here...
+    }
   ];
 
   return (

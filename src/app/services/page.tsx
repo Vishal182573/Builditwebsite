@@ -123,9 +123,6 @@ function ServicesPage() {
                       </motion.li>
                     ))}
                   </ul>
-                  <Button size="lg" className="text-lg">
-                    Learn More <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
                 </motion.div>
               </motion.div>
             </TabsContent>
@@ -183,7 +180,7 @@ function ServicesPage() {
 
         <section className="mt-24">
           <motion.div
-            className="bg-blue-600 text-white rounded-lg p-12 text-center"
+            className="bg-blue-600 text-white rounded-lg p-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -196,13 +193,6 @@ function ServicesPage() {
               Contact us today for a free consultation and let&rsquo;s bring
               your vision to life.
             </p>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-black border-white hover:bg-white hover:text-blue-600"
-            >
-              Get in Touch
-            </Button>
           </motion.div>
         </section>
       </main>
