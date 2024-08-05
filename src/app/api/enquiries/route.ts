@@ -1,7 +1,7 @@
-// app/api/enquiries/route.ts
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import Enquiry from "@/models/enquiry";
+import { sendEnquiryNotification, testSend } from "@/lib/EmailService";
 import { isAuthenticated } from "@/lib/auth";
 
 export async function POST(request: Request) {
@@ -10,12 +10,14 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { type, name, email, phone, area, location, budget, interiorTypes } =
       body;
+
     if (!type || !name || !email || !phone || !area || !location || !budget) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
+
     const newEnquiry = new Enquiry({
       type,
       name,
@@ -26,7 +28,17 @@ export async function POST(request: Request) {
       budget,
       interiorTypes: type === "interior" ? interiorTypes : undefined,
     });
+
     await newEnquiry.save();
+
+    // Send email notification
+    try {
+      await sendEnquiryNotification(newEnquiry);
+    } catch (emailError) {
+      console.error("Detailed error sending email notification:", emailError);
+      // Consider whether you want to return an error response here
+    }
+
     return NextResponse.json(
       { message: "Enquiry submitted successfully" },
       { status: 201 }
@@ -53,6 +65,20 @@ export async function GET() {
     console.error("Error fetching enquiries:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
+
+// You can use this route to test the email sending functionality
+export async function TEST() {
+  try {
+    await testSend();
+    return NextResponse.json({ message: "Test email sent" }, { status: 200 });
+  } catch (error) {
+    console.error("Error sending test email:", error);
+    return NextResponse.json(
+      { error: "Failed to send test email" },
       { status: 500 }
     );
   }

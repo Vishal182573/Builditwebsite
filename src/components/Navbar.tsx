@@ -13,7 +13,9 @@ import {
   FaInfoCircle,
   FaUserCircle,
   FaBath,
-  FaBox
+  FaBox,
+  FaBlog,
+  FaEdit,
 } from "react-icons/fa";
 
 // Importing React Icons
@@ -57,8 +59,17 @@ const Navbar = () => {
               <span>About</span>
             </NavLink>
             <NavLink href="/package">
-              <FaBox/>
+              <FaBox />
               <span>Packages</span>
+            </NavLink>
+
+            <NavLink href="/blog">
+              <FaBlog />
+              <span>Blog</span>
+            </NavLink>
+            <NavLink href="/blog/create">
+              <FaEdit className="text-blue-600 xl:text-2xl" />
+              <span>Create Post</span>
             </NavLink>
           </div>
           <div className="hidden md:flex items-center space-x-4">
@@ -102,7 +113,7 @@ const Navbar = () => {
               <span>Gallery</span>
             </MobileNavLink>
             <MobileNavLink href="/interiors">
-              <FaBath/>
+              <FaBath />
               <span>Interior</span>
             </MobileNavLink>
             <MobileNavLink href="/about">
@@ -110,10 +121,18 @@ const Navbar = () => {
               <span>About</span>
             </MobileNavLink>
             <MobileNavLink href="/package">
-              <FaBox/>
+              <FaBox />
               <span>Packages</span>
             </MobileNavLink>
           </div>
+          <MobileNavLink href="/blog">
+            <FaBlog />
+            <span>Blog</span>
+          </MobileNavLink>
+          <MobileNavLink href="/blog/create">
+            <FaEdit className="text-blue-600 xl:text-2xl" />
+            <span>Create Post</span>
+          </MobileNavLink>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex items-center px-5">
               <Button
