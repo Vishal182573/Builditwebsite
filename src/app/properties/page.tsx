@@ -225,13 +225,13 @@ export default function PropertiesPage() {
               journey today.
             </p>
             <Link href={"gallery-interior"}>
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 py-8 px-12 text-xl font-semibold rounded-full shadow-lg transform hover:scale-105"
-            >
-              See our gallery to view more properties 
-              <FaHandPointUp className="ml-2 h-6 w-6" />
-            </Button>
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 py-8 px-12 text-xl font-semibold rounded-full shadow-lg transform hover:scale-105"
+              >
+                See our gallery to view more properties
+                <FaHandPointUp className="ml-2 h-6 w-6" />
+              </Button>
             </Link>
           </motion.div>
         </div>
