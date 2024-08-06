@@ -108,10 +108,7 @@ const WashroomInterior: React.FC = () => {
       id: 1,
       name: "Spa Sanctuary",
       price: "$3,500",
-      images: [
-        "https://picsum.photos/200/300?random=51",
-        "https://picsum.photos/200/300?random=52",
-        "https://picsum.photos/200/300?random=53",
+      images: ["/washroom-1.jpg"
       ],
       description: "Luxurious washroom with spa-like amenities.",
       features: ["Jacuzzi Tub", "Heated Floors", "Rain Shower"],
@@ -123,10 +120,7 @@ const WashroomInterior: React.FC = () => {
       id: 2,
       name: "Rustic Haven",
       price: "$2,800",
-      images: [
-        "https://picsum.photos/200/300?random=54",
-        "https://picsum.photos/200/300?random=55",
-        "https://picsum.photos/200/300?random=56",
+      images: ["/washroom-2.jpg"
       ],
       description: "Charming washroom with rustic elements.",
       features: ["Stone Sink", "Wooden Vanity", "Antique Fixtures"],
@@ -138,10 +132,7 @@ const WashroomInterior: React.FC = () => {
       id: 3,
       name: "Minimalist Retreat",
       price: "$3,000",
-      images: [
-        "https://picsum.photos/200/300?random=57",
-        "https://picsum.photos/200/300?random=58",
-        "https://picsum.photos/200/300?random=59",
+      images: ["/washroom-3.jpg"
       ],
       description: "Simple and clean washroom design.",
       features: ["Floating Vanity", "Glass Shower", "Subway Tiles"],
@@ -153,10 +144,7 @@ const WashroomInterior: React.FC = () => {
       id: 4,
       name: "Bohemian Bliss",
       price: "$2,700",
-      images: [
-        "https://picsum.photos/200/300?random=60",
-        "https://picsum.photos/200/300?random=61",
-        "https://picsum.photos/200/300?random=62",
+      images: ["/washroom-4.jpg"
       ],
       description: "Eclectic washroom with bohemian flair.",
       features: ["Patterned Tiles", "Freestanding Tub", "Macramé Decor"],
@@ -168,10 +156,7 @@ const WashroomInterior: React.FC = () => {
       id: 5,
       name: "Coastal Escape",
       price: "$3,200",
-      images: [
-        "https://picsum.photos/200/300?random=63",
-        "https://picsum.photos/200/300?random=64",
-        "https://picsum.photos/200/300?random=65",
+      images: ["/washroom-5.jpg"
       ],
       description: "Light and airy washroom with coastal elements.",
       features: ["Shell Decor", "Blue Accents", "Pebble Flooring"],
@@ -183,10 +168,7 @@ const WashroomInterior: React.FC = () => {
       id: 6,
       name: "Elegant Powder Room",
       price: "$2,500",
-      images: [
-        "https://picsum.photos/200/300?random=66",
-        "https://picsum.photos/200/300?random=67",
-        "https://picsum.photos/200/300?random=68",
+      images: ["/washroom-6.jpg"
       ],
       description: "Sophisticated powder room with luxurious touches.",
       features: ["Marble Vanity", "Gold Fixtures", "Chandelier"],
@@ -198,10 +180,7 @@ const WashroomInterior: React.FC = () => {
       id: 7,
       name: "Vintage Charm",
       price: "$2,900",
-      images: [
-        "https://picsum.photos/200/300?random=69",
-        "https://picsum.photos/200/300?random=70",
-        "https://picsum.photos/200/300?random=71",
+      images: ["/washroom-7.jpg"
       ],
       description: "Charming washroom with vintage elements.",
       features: ["Clawfoot Tub", "Pedestal Sink", "Hexagon Tiles"],
@@ -213,10 +192,7 @@ const WashroomInterior: React.FC = () => {
       id: 8,
       name: "Contemporary Clean",
       price: "$3,300",
-      images: [
-        "https://picsum.photos/200/300?random=72",
-        "https://picsum.photos/200/300?random=73",
-        "https://picsum.photos/200/300?random=74",
+      images: ["/washroom-8.jpg"
       ],
       description: "Sleek and modern washroom design.",
       features: ["Wall-mounted Toilet", "LED Mirrors", "Floating Shelves"],

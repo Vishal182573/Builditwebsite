@@ -89,10 +89,7 @@ const KitchenInterior: React.FC = () => {
       id: 1,
       name: "Modern Elegance",
       price: "$5,000",
-      images: [
-        "https://picsum.photos/200/300?random=1",
-        "https://picsum.photos/200/300?random=2",
-        "https://picsum.photos/200/300?random=3",
+      images: ["/kitchen-1.jpg"
       ],
       description: "Sleek design with cutting-edge appliances.",
       features: ["Smart Appliances", "Quartz Countertops", "LED Lighting"],
@@ -103,10 +100,7 @@ const KitchenInterior: React.FC = () => {
       id: 2,
       name: "Rustic Charm",
       price: "$4,500",
-      images: [
-        "https://picsum.photos/200/300?random=4",
-        "https://picsum.photos/200/300?random=5",
-        "https://picsum.photos/200/300?random=6",
+      images: ["/kitchen-2.jpg"
       ],
       description: "Warm and inviting traditional kitchen.",
       features: ["Wooden Cabinets", "Farmhouse Sink", "Vintage Fixtures"],
@@ -117,10 +111,7 @@ const KitchenInterior: React.FC = () => {
       id: 3,
       name: "Urban Minimalist",
       price: "$3,800",
-      images: [
-        "https://picsum.photos/200/300?random=7",
-        "https://picsum.photos/200/300?random=8",
-        "https://picsum.photos/200/300?random=9",
+      images: ["/kitchen-3.jpg"
       ],
       description: "Clean lines and minimalistic design.",
       features: ["Open Shelving", "Stainless Steel", "Concrete Countertops"],
@@ -131,10 +122,7 @@ const KitchenInterior: React.FC = () => {
       id: 4,
       name: "Classic Traditional",
       price: "$4,200",
-      images: [
-        "https://picsum.photos/200/300?random=10",
-        "https://picsum.photos/200/300?random=11",
-        "https://picsum.photos/200/300?random=12",
+      images: ["/kitchen-4.jpg"
       ],
       description: "Timeless design with classic elements.",
       features: [
@@ -149,10 +137,7 @@ const KitchenInterior: React.FC = () => {
       id: 5,
       name: "Industrial Loft",
       price: "$4,700",
-      images: [
-        "https://picsum.photos/200/300?random=13",
-        "https://picsum.photos/200/300?random=14",
-        "https://picsum.photos/200/300?random=15",
+      images: ["/kitchen-5.jpg"
       ],
       description: "Raw and edgy design with industrial elements.",
       features: ["Exposed Bricks", "Metal Fixtures", "Concrete Floors"],
@@ -163,10 +148,7 @@ const KitchenInterior: React.FC = () => {
       id: 6,
       name: "Scandinavian Style",
       price: "$3,900",
-      images: [
-        "https://picsum.photos/200/300?random=16",
-        "https://picsum.photos/200/300?random=17",
-        "https://picsum.photos/200/300?random=18",
+      images: ["/kitchen-6.jpg"
       ],
       description: "Bright and airy design with natural materials.",
       features: ["White Cabinets", "Wood Accents", "Minimalist Decor"],
@@ -177,10 +159,7 @@ const KitchenInterior: React.FC = () => {
       id: 7,
       name: "Farmhouse Cozy",
       price: "$4,100",
-      images: [
-        "https://picsum.photos/200/300?random=19",
-        "https://picsum.photos/200/300?random=20",
-        "https://picsum.photos/200/300?random=21",
+      images: ["/kitchen-7.jpg"
       ],
       description: "Cozy design with farmhouse elements.",
       features: ["Shiplap Walls", "Apron Sink", "Butcher Block Countertops"],
@@ -191,10 +170,7 @@ const KitchenInterior: React.FC = () => {
       id: 8,
       name: "Mediterranean Warmth",
       price: "$4,800",
-      images: [
-        "https://picsum.photos/200/300?random=22",
-        "https://picsum.photos/200/300?random=23",
-        "https://picsum.photos/200/300?random=24",
+      images: ["/kitchen-8.jpg"
       ],
       description: "Warm and inviting design with Mediterranean elements.",
       features: ["Terracotta Tiles", "Archways", "Hand-Painted Backsplash"],

@@ -22,6 +22,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import MaterialOptions from "@/components/Pacakage";
 
 const properties = [
   {
@@ -40,7 +41,7 @@ const properties = [
     bedrooms: 2,
     bathrooms: 2,
     area: 1200,
-    image: "/urbanloft2.jpg",
+    image: "/urbanloft.jpg",
   },
   {
     id: 3,
@@ -291,6 +292,10 @@ export default function Home() {
               </MotionCard>
             ))}
           </motion.div>
+        </section>
+
+        <section className="mb-24">
+          <MaterialOptions/>
         </section>
 
         <section className="mb-24">

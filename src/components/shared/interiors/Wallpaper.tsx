@@ -93,10 +93,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 1,
       name: "Tropical Paradise",
-      images: [
-        "https://picsum.photos/200/300?random=49",
-        "https://picsum.photos/200/300?random=50",
-        "https://picsum.photos/200/300?random=51",
+      images: ["/wallpaper-1.jpg"
       ],
       description:
         "Vibrant tropical leaves and flowers for a bold, exotic look.",
@@ -109,10 +106,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 2,
       name: "Modern Hexagons",
-      images: [
-        "https://picsum.photos/200/300?random=52",
-        "https://picsum.photos/200/300?random=53",
-        "https://picsum.photos/200/300?random=54",
+      images: ["/wallpaper-2.jpg"
       ],
       description:
         "Sleek hexagonal pattern for a contemporary, minimalist interior.",
@@ -125,10 +119,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 3,
       name: "Classic Stripes",
-      images: [
-        "https://picsum.photos/200/300?random=55",
-        "https://picsum.photos/200/300?random=56",
-        "https://picsum.photos/200/300?random=57",
+      images: ["/wallpaper-3.jpg"
       ],
       description: "Timeless striped design perfect for any room.",
       pattern: "Striped",
@@ -140,10 +131,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 4,
       name: "Abstract Waves",
-      images: [
-        "https://picsum.photos/200/300?random=58",
-        "https://picsum.photos/200/300?random=59",
-        "https://picsum.photos/200/300?random=60",
+      images: ["/wallpaper-4.jpg"
       ],
       description: "Modern abstract waves for a dynamic, artistic touch.",
       pattern: "Abstract",
@@ -155,10 +143,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 5,
       name: "Textured Linen",
-      images: [
-        "https://picsum.photos/200/300?random=61",
-        "https://picsum.photos/200/300?random=62",
-        "https://picsum.photos/200/300?random=63",
+      images: ["/wallpaper-5.jpg"
       ],
       description: "Subtle linen texture for a sophisticated, elegant look.",
       pattern: "Textured",
@@ -170,10 +155,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 6,
       name: "Bold Floral",
-      images: [
-        "https://picsum.photos/200/300?random=64",
-        "https://picsum.photos/200/300?random=65",
-        "https://picsum.photos/200/300?random=66",
+      images: ["/wallpaper-6.jpg"
       ],
       description: "Dramatic floral design to make a statement.",
       pattern: "Floral",
@@ -185,10 +167,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 7,
       name: "Chic Chevron",
-      images: [
-        "https://picsum.photos/200/300?random=67",
-        "https://picsum.photos/200/300?random=68",
-        "https://picsum.photos/200/300?random=69",
+      images: ["/wallpaper-7.jpg"
       ],
       description: "Stylish chevron pattern for a contemporary look.",
       pattern: "Geometric",
@@ -200,10 +179,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 8,
       name: "Vintage Damask",
-      images: [
-        "https://picsum.photos/200/300?random=70",
-        "https://picsum.photos/200/300?random=71",
-        "https://picsum.photos/200/300?random=72",
+      images: ["/wallpaper-8.jpg"
       ],
       description: "Elegant damask pattern for a vintage feel.",
       pattern: "Abstract",
@@ -215,10 +191,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 9,
       name: "Minimalist Lines",
-      images: [
-        "https://picsum.photos/200/300?random=73",
-        "https://picsum.photos/200/300?random=74",
-        "https://picsum.photos/200/300?random=75",
+      images: ["/wallpaper-7.jpg"
       ],
       description: "Clean lines for a modern, minimalist aesthetic.",
       pattern: "Striped",
@@ -230,10 +203,7 @@ const WallpaperCatalog: React.FC = () => {
     {
       id: 10,
       name: "Organic Leaves",
-      images: [
-        "https://picsum.photos/200/300?random=76",
-        "https://picsum.photos/200/300?random=77",
-        "https://picsum.photos/200/300?random=78",
+      images: ["/wallpaper-8.jpg"
       ],
       description: "Natural leaf patterns for an organic feel.",
       pattern: "Floral",

@@ -113,7 +113,7 @@ const MaterialOptions: React.FC = () => {
           {materialOptions.map((option, index) => (
             <motion.div key={option.title} variants={itemVariants}>
               <Card className="h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                <CardHeader className="rounded-lg  bg-gradient-to-r from-blue-500 to-purple-600 text-white">
                   <CardTitle className="text-2xl font-bold">
                     {option.title}
                   </CardTitle>
@@ -141,11 +141,6 @@ const MaterialOptions: React.FC = () => {
                     </div>
                   </div>
                 </CardContent>
-                <CardFooter className="bg-gray-50 border-t p-4">
-                  <Button className="w-full" variant="default">
-                    Learn More <FaChevronRight className="ml-2" />
-                  </Button>
-                </CardFooter>
               </Card>
             </motion.div>
           ))}

@@ -1,25 +1,12 @@
 "use client";
 import * as React from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { FaBed, FaStar, FaPalette } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { BedroomItem } from "@/types/types";
 
 const BedroomCard: React.FC<{ item: BedroomItem }> = ({ item }) => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  );
-
   const themeColors = {
     Modern: "bg-slate-100 text-slate-800",
     Rustic: "bg-amber-100 text-amber-800",
@@ -31,25 +18,15 @@ const BedroomCard: React.FC<{ item: BedroomItem }> = ({ item }) => {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 max-w-sm h-[400px] flex flex-col">
       <CardHeader className="p-0 relative">
-        <Carousel plugins={[plugin.current]} className="w-full">
-          <CarouselContent>
-            {item.images.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="aspect-video w-full overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={item.name}
-                    width={400}
-                    height={200}
-                    className="object-cover"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
-        </Carousel>
+        <div className="aspect-video w-full overflow-hidden">
+          <Image
+            src={item.images[0]}
+            alt={item.name}
+            width={400}
+            height={200}
+            className="object-cover"
+          />
+        </div>
         <Badge
           className={`absolute bottom-2 left-2 ${
             themeColors[item.theme as keyof typeof themeColors]
@@ -109,9 +86,7 @@ const BedroomInterior: React.FC = () => {
       name: "Serene Oasis Bedroom",
       price: "$4,200",
       images: [
-        "https://picsum.photos/200/300?random=37",
-        "https://picsum.photos/200/300?random=38",
-        "https://picsum.photos/200/300?random=39",
+        "/bedroom-1.jpg"
       ],
       description:
         "Tranquil bedroom design with calming colors and plush textures.",
@@ -125,9 +100,7 @@ const BedroomInterior: React.FC = () => {
       name: "Rustic Retreat",
       price: "$3,800",
       images: [
-        "https://picsum.photos/200/300?random=40",
-        "https://picsum.photos/200/300?random=41",
-        "https://picsum.photos/200/300?random=42",
+        "/bedroom-2.jpg"
       ],
       description: "Cozy bedroom with rustic charm and natural elements.",
       features: ["Exposed Beams", "Fireplace", "Vintage Furniture"],
@@ -140,9 +113,7 @@ const BedroomInterior: React.FC = () => {
       name: "Minimalist Haven",
       price: "$3,500",
       images: [
-        "https://picsum.photos/200/300?random=43",
-        "https://picsum.photos/200/300?random=44",
-        "https://picsum.photos/200/300?random=45",
+        "/bedroom-3.jpg"
       ],
       description: "Simple and clean bedroom with a minimalist aesthetic.",
       features: ["Built-in Storage", "Simple Lines", "Neutral Colors"],
@@ -155,9 +126,7 @@ const BedroomInterior: React.FC = () => {
       name: "Bohemian Rhapsody",
       price: "$3,900",
       images: [
-        "https://picsum.photos/200/300?random=46",
-        "https://picsum.photos/200/300?random=47",
-        "https://picsum.photos/200/300?random=48",
+        "/bedroom-4.jpg",
       ],
       description: "Eclectic and colorful bedroom with a bohemian vibe.",
       features: ["Tapestries", "Vintage Rugs", "Bold Colors"],
@@ -170,9 +139,7 @@ const BedroomInterior: React.FC = () => {
       name: "Coastal Breeze",
       price: "$4,000",
       images: [
-        "https://picsum.photos/200/300?random=49",
-        "https://picsum.photos/200/300?random=50",
-        "https://picsum.photos/200/300?random=51",
+        "/bedroom-5.jpg"
       ],
       description: "Bright and airy bedroom with coastal decor.",
       features: ["Ocean Views", "Whitewashed Wood", "Sea-Inspired Colors"],
@@ -185,9 +152,7 @@ const BedroomInterior: React.FC = () => {
       name: "Industrial Loft",
       price: "$4,500",
       images: [
-        "https://picsum.photos/200/300?random=52",
-        "https://picsum.photos/200/300?random=53",
-        "https://picsum.photos/200/300?random=54",
+        "/bedroom-6.jpg",
       ],
       description: "Chic bedroom with an industrial loft design.",
       features: ["Exposed Brick", "Metal Fixtures", "Open Space"],
@@ -200,9 +165,7 @@ const BedroomInterior: React.FC = () => {
       name: "Glamorous Suite",
       price: "$5,200",
       images: [
-        "https://picsum.photos/200/300?random=55",
-        "https://picsum.photos/200/300?random=56",
-        "https://picsum.photos/200/300?random=57",
+        "/bedroom-7.jpg",
       ],
       description: "Luxurious bedroom suite with glamorous details.",
       features: ["Chandelier", "Plush Fabrics", "Gold Accents"],
@@ -215,9 +178,7 @@ const BedroomInterior: React.FC = () => {
       name: "Modern Elegance",
       price: "$4,600",
       images: [
-        "https://picsum.photos/200/300?random=58",
-        "https://picsum.photos/200/300?random=59",
-        "https://picsum.photos/200/300?random=60",
+        "/bedroom-8.jpg"
       ],
       description: "Elegant bedroom with modern touches and sleek design.",
       features: [
