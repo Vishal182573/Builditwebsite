@@ -58,17 +58,13 @@ const Navbar = () => {
               <FaInfoCircle />
               <span>About</span>
             </NavLink>
-            <NavLink href="/package">
-              <FaBox />
-              <span>Packages</span>
-            </NavLink>
 
             <NavLink href="/blog">
               <FaBlog />
               <span>Blog</span>
             </NavLink>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
+          {/* <div className="hidden md:flex items-center space-x-4">
             <Button
               onClick={() => {
                 router.push("/enquiry");
@@ -78,7 +74,7 @@ const Navbar = () => {
               <FaUserCircle size={20} />
               <span>Enquiry form</span>
             </Button>
-          </div>
+          </div> */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -116,16 +112,12 @@ const Navbar = () => {
               <FaInfoCircle />
               <span>About</span>
             </MobileNavLink>
-            <MobileNavLink href="/package">
-              <FaBox />
-              <span>Packages</span>
-            </MobileNavLink>
           </div>
           <MobileNavLink href="/blog">
             <FaBlog />
             <span>Blog</span>
           </MobileNavLink>
-          <div className="pt-4 pb-3 border-t border-gray-200">
+          {/* <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex items-center px-5">
               <Button
                 onClick={() => {
@@ -137,7 +129,7 @@ const Navbar = () => {
                 <span>Enquiry form</span>
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </nav>

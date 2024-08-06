@@ -42,4 +42,3 @@ export const sendEnquiryNotification = async (enquiryData: any) => {
   }
 };
 
-// requirement email servrice

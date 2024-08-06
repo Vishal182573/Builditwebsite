@@ -15,10 +15,6 @@ import Image from "next/image";
 import { LivingRoomItem } from "@/types/types";
 
 const LivingRoomCard: React.FC<{ item: LivingRoomItem }> = ({ item }) => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  );
-
   const styleColors = {
     Contemporary: "bg-blue-100 text-blue-800",
     Traditional: "bg-green-100 text-green-800",
@@ -30,25 +26,15 @@ const LivingRoomCard: React.FC<{ item: LivingRoomItem }> = ({ item }) => {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 max-w-sm h-[400px] flex flex-col">
       <CardHeader className="p-0 relative">
-        <Carousel plugins={[plugin.current]} className="w-full">
-          <CarouselContent>
-            {item.images.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="aspect-video w-full overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={item.name}
-                    width={400}
-                    height={200}
-                    className="object-cover"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
-        </Carousel>
+        <div className="aspect-video w-full overflow-hidden">
+          <Image
+            src={item.images[0]}
+            alt={item.name}
+            width={400}
+            height={200}
+            className="object-cover"
+          />
+        </div>
         <Badge
           className={`absolute bottom-2 left-2 ${
             styleColors[item.style as keyof typeof styleColors]
@@ -93,10 +79,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 1,
       name: "Urban Chic Living Space",
-      images: [
-        "https://picsum.photos/200/300?random=43",
-        "https://picsum.photos/200/300?random=44",
-        "https://picsum.photos/200/300?random=45",
+      images: ["/living_room-1.jpg"
       ],
       description: "A modern living room with sleek lines and urban flair.",
       style: "Contemporary",
@@ -110,11 +93,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 2,
       name: "Cozy Cottage Living Room",
-      images: [
-        "https://picsum.photos/200/300?random=46",
-        "https://picsum.photos/200/300?random=47",
-        "https://picsum.photos/200/300?random=48",
-      ],
+      images: ["/living_room-2.jpg"],
       description: "Warm and inviting cottage-style living room.",
       style: "Cottage",
       size: "350 sq ft",
@@ -123,10 +102,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 3,
       name: "Minimalist Retreat",
-      images: [
-        "https://picsum.photos/200/300?random=49",
-        "https://picsum.photos/200/300?random=50",
-        "https://picsum.photos/200/300?random=51",
+      images: ["/living_room-3.jpg"
       ],
       description: "Simple and serene living room with minimalist decor.",
       style: "Minimalist",
@@ -136,10 +112,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 4,
       name: "Bohemian Loft",
-      images: [
-        "https://picsum.photos/200/300?random=52",
-        "https://picsum.photos/200/300?random=53",
-        "https://picsum.photos/200/300?random=54",
+      images: ["/living_room-4.jpg"
       ],
       description: "Eclectic living room with a bohemian vibe.",
       style: "Bohemian",
@@ -149,10 +122,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 5,
       name: "Industrial Living Area",
-      images: [
-        "https://picsum.photos/200/300?random=55",
-        "https://picsum.photos/200/300?random=56",
-        "https://picsum.photos/200/300?random=57",
+      images: ["/living_room-5.jpg"
       ],
       description: "Stylish living room with industrial elements.",
       style: "Industrial",
@@ -162,10 +132,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 6,
       name: "Classic Elegance",
-      images: [
-        "https://picsum.photos/200/300?random=58",
-        "https://picsum.photos/200/300?random=59",
-        "https://picsum.photos/200/300?random=60",
+      images: ["/living_room-6.jpg"
       ],
       description: "Elegant living room with classic decor.",
       style: "Traditional",
@@ -175,10 +142,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 7,
       name: "Scandinavian Simplicity",
-      images: [
-        "https://picsum.photos/200/300?random=61",
-        "https://picsum.photos/200/300?random=62",
-        "https://picsum.photos/200/300?random=63",
+      images: ["/living_room-7.jpg"
       ],
       description: "Bright and airy living room with Scandinavian design.",
       style: "Scandinavian",
@@ -188,10 +152,7 @@ const LivingRoomCatalog: React.FC = () => {
     {
       id: 8,
       name: "Modern Farmhouse",
-      images: [
-        "https://picsum.photos/200/300?random=64",
-        "https://picsum.photos/200/300?random=65",
-        "https://picsum.photos/200/300?random=66",
+      images: ["/living_room-8.jpg"
       ],
       description: "Comfortable living room with modern farmhouse style.",
       style: "Farmhouse",
