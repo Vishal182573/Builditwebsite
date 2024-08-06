@@ -1,6 +1,6 @@
 "use client";
 
-import { useState,useEffect} from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -20,65 +20,46 @@ import {
 
 // Importing React Icons
 
-const Navbar = () => {
+const NavbarWithoutDark = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const maxScroll = 100; // Adjust this value to control how quickly the effect occurs
-      const progress = Math.min(scrollPosition / maxScroll, 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const backgroundColor = `rgba(255, 255, 255, ${scrollProgress})`;
-  const textColor = `rgb(${Math.round(255 - scrollProgress * 255)}, ${Math.round(255 - scrollProgress * 255)}, ${Math.round(255 - scrollProgress * 255)})`;
-
   return (
-    <nav 
-      className="shadow-md fixed top-0 z-50 w-full transition-all duration-300 ease-in-out"
-      style={{ backgroundColor }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-1">
-        <div className="flex justify-between h-16">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link href="/" className={`text-3xl font-extrabold transition-colors duration-300 ease-in-out`} style={{ color: textColor }}>
+            <Link href="/" className="text-3xl font-extrabold text-black">
               Build<span className="text-blue-600">It</span>
             </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-12 text-sm">
-            <NavLink href="/" textColor={textColor}>
+          <div className="hidden md:flex items-center space-x-8">
+            <NavLink href="/">
               <FaHome />
               <span>Home</span>
             </NavLink>
-            <NavLink href="/services" textColor={textColor}>
+            <NavLink href="/services">
               <FaServicestack />
               <span>Services</span>
             </NavLink>
-            <NavLink href="/properties" textColor={textColor}>
+            <NavLink href="/properties">
               <FaBuilding />
               <span>Properties</span>
             </NavLink>
-            <NavLink href="/gallery-interior" textColor={textColor}>
+            <NavLink href="/gallery-interior">
               <FaCouch />
               <span>Gallery</span>
             </NavLink>
-            <NavLink href="/interiors" textColor={textColor}>
+            <NavLink href="/interiors">
               <FaBath />
               <span>Interior</span>
             </NavLink>
-            <NavLink href="/about" textColor={textColor}>
+            <NavLink href="/about">
               <FaInfoCircle />
               <span>About</span>
             </NavLink>
 
-            <NavLink href="/blog" textColor={textColor}>
+            <NavLink href="/blog">
               <FaBlog />
               <span>Blog</span>
             </NavLink>
@@ -97,7 +78,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              style={{ color: textColor }}
+              className="text-black"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -105,34 +86,34 @@ const Navbar = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-black backdrop-blur-sm bg-opacity-40">
+        <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink href="/" textColor={textColor}>
+            <MobileNavLink href="/">
               <FaHome />
               <span>Home</span>
             </MobileNavLink>
-            <MobileNavLink href="/services" textColor={textColor}>
+            <MobileNavLink href="/services">
               <FaServicestack />
               <span>Services</span>
             </MobileNavLink>
-            <MobileNavLink href="/properties" textColor={textColor}>
+            <MobileNavLink href="/properties">
               <FaBuilding />
               <span>Properties</span>
             </MobileNavLink>
-            <MobileNavLink href="/gallery-interior" textColor={textColor}>
+            <MobileNavLink href="/gallery-interior">
               <FaCouch />
               <span>Gallery</span>
             </MobileNavLink>
-            <MobileNavLink href="/interiors" textColor={textColor}>
+            <MobileNavLink href="/interiors">
               <FaBath />
               <span>Interior</span>
             </MobileNavLink>
-            <MobileNavLink href="/about" textColor={textColor}>
+            <MobileNavLink href="/about">
               <FaInfoCircle />
               <span>About</span>
             </MobileNavLink>
           </div>
-          <MobileNavLink href="/blog" textColor={textColor}>
+          <MobileNavLink href="/blog">
             <FaBlog />
             <span>Blog</span>
           </MobileNavLink>
@@ -155,20 +136,34 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, children, textColor }) => {
-  return (
-    <Link href={href} className={`flex items-center space-x-1 transition-colors duration-300 ease-in-out`} style={{ color: textColor }}>
-      {children}
-    </Link>
-  );
-};
+const NavLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <Link
+    href={href}
+    className="flex items-center text-black hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out space-x-2"
+  >
+    {children}
+  </Link>
+);
 
-const MobileNavLink = ({ href, children, textColor }) => {
-  return (
-    <Link href={href} className={`items-center text-black hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium space-x-2`} style={{ color: textColor }}>
-      {children}
-    </Link>
-  );
-};
+const MobileNavLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <Link
+    href={href}
+    className="items-center text-black hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium space-x-2"
+  >
+    {children}
+  </Link>
+);
 
-export default Navbar;
+export default NavbarWithoutDark;
