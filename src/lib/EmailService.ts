@@ -42,21 +42,4 @@ export const sendEnquiryNotification = async (enquiryData: any) => {
   }
 };
 
-// Test function
-export const testSend = async () => {
-  try {
-    const { data, error } = await resend.emails.send({
-      from: process.env.FROM_EMAIL as string,
-      to: process.env.ADMIN_EMAIL as string,
-      subject: "Test Email",
-      html: "<p>This is a test email</p>",
-    });
-    if (error) {
-      console.error("Test email error:", error);
-    } else {
-      console.log("Test email sent:", data);
-    }
-  } catch (error) {
-    console.error("Error in test email:", error);
-  }
-};
+// requirement email servrice

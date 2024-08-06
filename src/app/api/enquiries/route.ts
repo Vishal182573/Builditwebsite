@@ -36,7 +36,10 @@ export async function POST(request: Request) {
       await sendEnquiryNotification(newEnquiry);
     } catch (emailError) {
       console.error("Detailed error sending email notification:", emailError);
-      // Consider whether you want to return an error response here
+      return NextResponse.json(
+        { error: "Error sending email notification" },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json(
