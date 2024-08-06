@@ -69,17 +69,3 @@ export async function GET() {
     );
   }
 }
-
-// You can use this route to test the email sending functionality
-export async function TEST() {
-  try {
-    await testSend();
-    return NextResponse.json({ message: "Test email sent" }, { status: 200 });
-  } catch (error) {
-    console.error("Error sending test email:", error);
-    return NextResponse.json(
-      { error: "Failed to send test email" },
-      { status: 500 }
-    );
-  }
-}
