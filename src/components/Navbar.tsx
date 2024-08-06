@@ -67,10 +67,6 @@ const Navbar = () => {
               <FaBlog />
               <span>Blog</span>
             </NavLink>
-            <NavLink href="/blog/create">
-              <FaEdit className="text-blue-600 xl:text-2xl" />
-              <span>Create Post</span>
-            </NavLink>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <Button
@@ -128,10 +124,6 @@ const Navbar = () => {
           <MobileNavLink href="/blog">
             <FaBlog />
             <span>Blog</span>
-          </MobileNavLink>
-          <MobileNavLink href="/blog/create">
-            <FaEdit className="text-blue-600 xl:text-2xl" />
-            <span>Create Post</span>
           </MobileNavLink>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex items-center px-5">

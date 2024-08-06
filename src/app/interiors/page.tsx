@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  FaBed,
-  FaCouch,
-  FaBath,
-  FaPaintRoller,
-  FaUtensils,
-  FaConciergeBell,
-} from "react-icons/fa";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -21,29 +14,33 @@ const InteriorCategories = () => {
   const categories = [
     {
       name: "Bedroom Design",
-      icon: <FaBed />,
       href: "/interiors/bedroominterior",
+      image: "/simple-bedroom-interior-designs.jpg",
     },
     {
       name: "Living Room",
-      icon: <FaCouch />,
       href: "/interiors/livinginterior",
+      image: "/living_room_design.jpg",
     },
-    { name: "Washroom", icon: <FaBath />, href: "/interiors/washroominterior" },
+    {
+      name: "Washroom",
+      href: "/interiors/washroominterior",
+      image: "/bathroom_image.avif",
+    },
     {
       name: "Wallpaper",
-      icon: <FaPaintRoller />,
       href: "/interiors/wallpaperinterior",
+      image: "/wallpapaer_design.jpg",
     },
     {
       name: "Dining Room",
-      icon: <FaUtensils />,
       href: "/interiors/dininginterior",
+      image: "/diningroom_design.jpg",
     },
     {
       name: "Kitchen",
-      icon: <FaConciergeBell />,
       href: "/interiors/kitcheninterior",
+      image: "/kitchen_design.jpg",
     },
   ];
 
@@ -55,11 +52,15 @@ const InteriorCategories = () => {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((category) => (
           <Link key={category.name} href={category.href}>
-            <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer h-[400px]">
               <CardHeader className="flex flex-col items-center">
-                <div className="text-blue-600 text-4xl mb-4">
-                  {category.icon}
-                </div>
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  width={300}
+                  height={200}
+                  className="rounded mb-4 object-cover"
+                />
                 <CardTitle>{category.name}</CardTitle>
               </CardHeader>
               <CardContent>
