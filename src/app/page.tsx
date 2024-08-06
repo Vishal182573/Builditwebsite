@@ -23,6 +23,9 @@ import {
   Mail,
 } from "lucide-react";
 import MaterialOptions from "@/components/Pacakage";
+import RequirementsForm from "@/components/RequirementForm";
+import Navbar from "@/components/Navbar";
+import Introduction from "@/components/Introduction";
 
 const properties = [
   {
@@ -80,9 +83,23 @@ const slideVariants = {
   },
 };
 
+const images = [
+  '/real-estate-1.jpg',
+  '/real-estate-2.jpg',
+  '/real-estate-3.jpg',
+];
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
   const nextSlide = () =>
     setCurrentSlide((prev) => (prev + 1) % properties.length);
   const prevSlide = () =>
@@ -97,7 +114,101 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative h-screen w-full overflow-hidden">
+        {images.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt={`Real estate image ${index + 1}`}
+            layout="fill"
+            objectFit="cover"
+            className={`transition-opacity duration-1000 ${index === currentImage ? 'opacity-100' : 'opacity-0'
+              }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <div className="relative z-10 hidden lg:block mt-28 ml-9">
+          <RequirementsForm />
+        </div>
+      </section>
+      <main className=" mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section className="mb-24 px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="lg:hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <RequirementsForm />
+          </motion.div>
+        </section>
+
+        <section className="mb-24 px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Introduction/>
+          </motion.div>
+        </section>
+
+        <section className="mb-24">
+          <motion.h2
+            className="text-4xl font-bold mb-12 text-gray-800"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Why Choose BUILDIT?
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {[
+              {
+                icon: Building2,
+                title: "Expert Construction",
+                description: "State-of-the-art techniques and materials",
+              },
+              {
+                icon: Users,
+                title: "Client-Centric Approach",
+                description: "Your vision, our expertise",
+              },
+              {
+                icon: Trophy,
+                title: "Award-Winning Designs",
+                description: "Recognized for innovation and quality",
+              },
+              {
+                icon: Sparkles,
+                title: "Sustainable Practices",
+                description: "Eco-friendly solutions for a better future",
+              },
+            ].map((item, index) => (
+              <MotionCard
+                key={index}
+                className="text-center p-6 hover:shadow-lg transition-shadow duration-300"
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+              >
+                <CardContent>
+                  <item.icon className="mx-auto h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </CardContent>
+              </MotionCard>
+            ))}
+          </motion.div>
+        </section>
         <section className="mb-24">
           <motion.h2
             className="text-4xl font-bold text-center mb-12 text-gray-800"
@@ -180,61 +291,6 @@ export default function Home() {
         </section>
 
         <section className="mb-24">
-          <motion.h2
-            className="text-4xl font-bold mb-12 text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Why Choose BUILDIT?
-          </motion.h2>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              {
-                icon: Building2,
-                title: "Expert Construction",
-                description: "State-of-the-art techniques and materials",
-              },
-              {
-                icon: Users,
-                title: "Client-Centric Approach",
-                description: "Your vision, our expertise",
-              },
-              {
-                icon: Trophy,
-                title: "Award-Winning Designs",
-                description: "Recognized for innovation and quality",
-              },
-              {
-                icon: Sparkles,
-                title: "Sustainable Practices",
-                description: "Eco-friendly solutions for a better future",
-              },
-            ].map((item, index) => (
-              <MotionCard
-                key={index}
-                className="text-center p-6 hover:shadow-lg transition-shadow duration-300"
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-              >
-                <CardContent>
-                  <item.icon className="mx-auto h-12 w-12 text-blue-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </CardContent>
-              </MotionCard>
-            ))}
-          </motion.div>
-        </section>
-
-        <section className="mb-24">
           <motion.div
             className="flex justify-between items-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -295,7 +351,7 @@ export default function Home() {
         </section>
 
         <section className="mb-24">
-          <MaterialOptions/>
+          <MaterialOptions />
         </section>
 
         <section className="mb-24">
