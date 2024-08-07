@@ -83,11 +83,7 @@ const slideVariants = {
   },
 };
 
-const images = [
-  '/coursorel-1.jpg',
-  '/coursorel-2.jpg',
-  '/coursorel-3.jpg'
-];
+const images = ["/coursorel-1.jpg", "/coursorel-2.jpg", "/coursorel-3.jpg"];
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -122,14 +118,14 @@ export default function Home() {
             alt={`Real estate image ${index + 1}`}
             layout="fill"
             objectFit="cover"
-            className={`transition-opacity duration-1000 ${index === currentImage ? 'opacity-100' : 'opacity-0'
-              }`}
+            className={`transition-opacity duration-1000 ${
+              index === currentImage ? "opacity-100" : "opacity-0"
+            }`}
           />
         ))}
         <div className="absolute inset-0 bg-black bg-opacity-50" />
 
         <div className="relative z-10 flex flex-col flex-grow">
-
           {/* RequirementsForm for large screens */}
           <div className="hidden lg:block mt-24 ml-9">
             <RequirementsForm />
@@ -138,12 +134,12 @@ export default function Home() {
           {/* Content for small screens */}
           <div className="lg:hidden flex-grow flex flex-col justify-end p-4">
             <Link href={"/properties"}>
-              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg mb-4" >
+              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg mb-4">
                 Search Properties
               </button>
             </Link>
             <Link href={"/blog"}>
-              <button className="w-full bg-white text-blue-600 py-3 px-6 rounded-lg mb-4" >
+              <button className="w-full bg-white text-blue-600 py-3 px-6 rounded-lg mb-4">
                 Blogs
               </button>
             </Link>
@@ -525,8 +521,8 @@ export default function Home() {
             <div>
               <h4 className="text-xl font-semibold mb-6">Follow Us</h4>
               <div className="flex space-x-4">
-
-                <a href="#"
+                <a
+                  href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <svg
@@ -543,7 +539,8 @@ export default function Home() {
                   </svg>
                 </a>
 
-                <a href="#"
+                <a
+                  href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <svg
@@ -560,8 +557,10 @@ export default function Home() {
                   </svg>
                 </a>
 
-                <a href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
                   <svg
                     className="h-6 w-6"
                     fill="currentColor"
@@ -577,12 +576,12 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div >
+          </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
             <p>&copy; 2024 BUILDIT. All rights reserved.</p>
           </div>
-        </div >
-      </footer >
-    </div >
+        </div>
+      </footer>
+    </div>
   );
 }

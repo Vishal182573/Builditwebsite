@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { useState } from "react";
@@ -6,7 +7,15 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Building2, Home, ArrowRight, Check, Phone, Mail, MapPin } from "lucide-react";
+import {
+  Building2,
+  Home,
+  ArrowRight,
+  Check,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import MaterialOptions from "@/components/Pacakage";
 import Link from "next/link";
 
@@ -73,9 +82,13 @@ function ServicesPage() {
           <motion.h1 className="text-7xl font-bold mb-6" variants={fadeInUp}>
             Our Services
           </motion.h1>
-          <motion.p className="text-2xl mb-10 max-w-3xl mx-auto" variants={fadeInUp}>
-            Exceptional construction services for residential and commercial projects. 
-            We bring your vision to life with precision, quality, and innovation.
+          <motion.p
+            className="text-2xl mb-10 max-w-3xl mx-auto"
+            variants={fadeInUp}
+          >
+            Exceptional construction services for residential and commercial
+            projects. We bring your vision to life with precision, quality, and
+            innovation.
           </motion.p>
         </motion.div>
       </header>
@@ -178,7 +191,9 @@ function ServicesPage() {
                 <Card className="text-center p-8 hover:shadow-lg transition-shadow duration-300">
                   <CardContent>
                     <div className="text-5xl mb-6">{item.icon}</div>
-                    <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+                    <h3 className="text-2xl font-semibold mb-4">
+                      {item.title}
+                    </h3>
                     <p className="text-gray-600">{item.description}</p>
                   </CardContent>
                 </Card>
@@ -199,13 +214,15 @@ function ServicesPage() {
               Ready to Start Your Project?
             </h2>
             <p className="text-xl mb-10 max-w-3xl mx-auto">
-              Contact us today for a free consultation and let's bring your vision to life. 
-              Our team of experts is ready to turn your ideas into reality.
+              Contact us today for a free consultation and let's bring your
+              vision to life. Our team of experts is ready to turn your ideas
+              into reality.
             </p>
             <Link href={"/about"}>
-            <Button size="lg" variant="outline" className="mr-4 text-black">
-              Know About Us<ArrowRight className="ml-2" />
-            </Button>
+              <Button size="lg" variant="outline" className="mr-4 text-black">
+                Know About Us
+                <ArrowRight className="ml-2" />
+              </Button>
             </Link>
           </motion.div>
         </section>
@@ -268,8 +285,12 @@ function ServicesPage() {
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-8 hover:shadow-lg transition-shadow duration-300">
                   <CardContent>
-                    <div className="flex justify-center mb-6 text-blue-600">{item.icon}</div>
-                    <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+                    <div className="flex justify-center mb-6 text-blue-600">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4">
+                      {item.title}
+                    </h3>
                     <p className="text-gray-600">{item.info}</p>
                   </CardContent>
                 </Card>

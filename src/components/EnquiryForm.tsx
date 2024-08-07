@@ -15,10 +15,18 @@ import {
   Ruler,
   PaintBucket,
   Building2,
+  Home,
 } from "lucide-react";
 import IconInput from "./IconInput";
 import { Toaster } from "./ui/toaster";
 import { FaRupeeSign } from "react-icons/fa";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const interiorTypes = [
   { id: "bedroom", label: "Bedroom" },
@@ -29,6 +37,23 @@ const interiorTypes = [
   { id: "livingRoom", label: "Living Room" },
 ];
 
+const constructionTypes = [
+  { id: "residential", label: "Residential" },
+  { id: "commercial", label: "Commercial" },
+];
+
+const developmentTypes = [
+  { id: "villa", label: "Villa" },
+  { id: "plotting", label: "Plotting" },
+  { id: "highRise", label: "High Rise" },
+];
+
+const budgetOptions = [
+  { id: "classic", label: "Classic" },
+  { id: "premium", label: "Premium" },
+  { id: "luxury", label: "Luxury" },
+];
+
 interface FormData {
   name: string;
   email: string;
@@ -37,12 +62,16 @@ interface FormData {
   location: string;
   budget: string;
   interiorTypes: string[];
+  constructionType: string;
+  developmentType: string;
+  advance: string;
+  ration: string;
 }
 
 const EnquiryForm: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"interior" | "construction">(
-    "interior"
-  );
+  const [activeTab, setActiveTab] = useState<
+    "interior" | "construction" | "development"
+  >("interior");
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -52,10 +81,18 @@ const EnquiryForm: React.FC = () => {
     location: "",
     budget: "",
     interiorTypes: [],
+    constructionType: "",
+    developmentType: "",
+    advance: "",
+    ration: "",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -92,6 +129,10 @@ const EnquiryForm: React.FC = () => {
           location: "",
           budget: "",
           interiorTypes: [],
+          constructionType: "",
+          developmentType: "",
+          advance: "",
+          ration: "",
         });
       } else {
         const errorData = await response.json();
@@ -109,16 +150,100 @@ const EnquiryForm: React.FC = () => {
     }
   };
 
+  const renderCommonFields = () => (
+    <>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="name">Name</Label>
+          <IconInput
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            icon={<User className="h-4 w-4" />}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <IconInput
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            icon={<Mail className="h-4 w-4" />}
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="phone">Phone</Label>
+          <IconInput
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            required
+            icon={<Phone className="h-4 w-4" />}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="area">Area (sqft)</Label>
+          <IconInput
+            id="area"
+            name="area"
+            type="number"
+            value={formData.area}
+            onChange={handleInputChange}
+            required
+            icon={<Ruler className="h-4 w-4" />}
+          />
+        </div>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="location">Location</Label>
+        <IconInput
+          id="location"
+          name="location"
+          value={formData.location}
+          onChange={handleInputChange}
+          required
+          icon={<MapPin className="h-4 w-4" />}
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="budget">Budget</Label>
+        <Select
+          value={formData.budget}
+          onValueChange={(value) => handleSelectChange("budget", value)}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select budget" />
+          </SelectTrigger>
+          <SelectContent>
+            {budgetOptions.map((option) => (
+              <SelectItem key={option.id} value={option.id}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+    </>
+  );
+
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8">
       <CardContent className="p-6">
         <Tabs
           value={activeTab}
           onValueChange={(value) =>
-            setActiveTab(value as "interior" | "construction")
+            setActiveTab(value as "interior" | "construction" | "development")
           }
         >
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="interior">
               <PaintBucket className="mr-2 h-4 w-4" />
               Interior
@@ -127,82 +252,14 @@ const EnquiryForm: React.FC = () => {
               <Building2 className="mr-2 h-4 w-4" />
               Construction
             </TabsTrigger>
+            <TabsTrigger value="development">
+              <Home className="mr-2 h-4 w-4" />
+              Development
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="interior">
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <IconInput
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    icon={<User className="h-4 w-4" />}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <IconInput
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    icon={<Mail className="h-4 w-4" />}
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
-                  <IconInput
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    icon={<Phone className="h-4 w-4" />}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="area">Area (sqft)</Label>
-                  <IconInput
-                    id="area"
-                    name="area"
-                    type="number"
-                    value={formData.area}
-                    onChange={handleInputChange}
-                    required
-                    icon={<Ruler className="h-4 w-4" />}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="location">Location</Label>
-                <IconInput
-                  id="location"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleInputChange}
-                  required
-                  icon={<MapPin className="h-4 w-4" />}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="budget">Budget</Label>
-                <IconInput
-                  id="budget"
-                  name="budget"
-                  type="number"
-                  value={formData.budget}
-                  onChange={handleInputChange}
-                  required
-                  icon={<FaRupeeSign className="h-4 w-4" />}
-                />
-              </div>
+              {renderCommonFields()}
               <div className="space-y-2">
                 <Label>Interior Types</Label>
                 <div className="grid grid-cols-2 gap-2">
@@ -225,78 +282,79 @@ const EnquiryForm: React.FC = () => {
           </TabsContent>
           <TabsContent value="construction">
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <IconInput
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    icon={<User className="h-4 w-4" />}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <IconInput
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    icon={<Mail className="h-4 w-4" />}
-                  />
-                </div>
+              {renderCommonFields()}
+              <div className="space-y-2">
+                <Label htmlFor="constructionType">Construction Type</Label>
+                <Select
+                  value={formData.constructionType}
+                  onValueChange={(value) =>
+                    handleSelectChange("constructionType", value)
+                  }
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select construction type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {constructionTypes.map((type) => (
+                      <SelectItem key={type.id} value={type.id}>
+                        {type.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <Button type="submit" className="w-full">
+                Submit Enquiry
+              </Button>
+            </form>
+          </TabsContent>
+          <TabsContent value="development">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {renderCommonFields()}
+              <div className="space-y-2">
+                <Label htmlFor="developmentType">Property Type</Label>
+                <Select
+                  value={formData.developmentType}
+                  onValueChange={(value) =>
+                    handleSelectChange("developmentType", value)
+                  }
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select property type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {developmentTypes.map((type) => (
+                      <SelectItem key={type.id} value={type.id}>
+                        {type.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="advance">Advance</Label>
                   <IconInput
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    id="advance"
+                    name="advance"
+                    type="number"
+                    value={formData.advance}
                     onChange={handleInputChange}
                     required
-                    icon={<Phone className="h-4 w-4" />}
+                    icon={<FaRupeeSign className="h-4 w-4" />}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="area">Area (sqft)</Label>
+                  <Label htmlFor="ratio">Ration</Label>
                   <IconInput
-                    id="area"
-                    name="area"
-                    type="number"
-                    value={formData.area}
+                    id="ration"
+                    name="ration"
+                    value={formData.ration}
                     onChange={handleInputChange}
                     required
                     icon={<Ruler className="h-4 w-4" />}
                   />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="location">Location</Label>
-                <IconInput
-                  id="location"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleInputChange}
-                  required
-                  icon={<MapPin className="h-4 w-4" />}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="budget">Budget</Label>
-                <IconInput
-                  id="budget"
-                  name="budget"
-                  type="number"
-                  value={formData.budget}
-                  onChange={handleInputChange}
-                  required
-                  icon={<FaRupeeSign className="h-4 w-4" />}
-                />
               </div>
               <Button type="submit" className="w-full">
                 Submit Enquiry

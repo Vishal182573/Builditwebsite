@@ -8,8 +8,20 @@ export async function POST(request: Request) {
   try {
     await dbConnect();
     const body = await request.json();
-    const { type, name, email, phone, area, location, budget, interiorTypes } =
-      body;
+    const {
+      type,
+      name,
+      email,
+      phone,
+      area,
+      location,
+      budget,
+      interiorTypes,
+      constructionType,
+      developmentType,
+      advance,
+      ration,
+    } = body;
 
     if (!type || !name || !email || !phone || !area || !location || !budget) {
       return NextResponse.json(
@@ -27,20 +39,24 @@ export async function POST(request: Request) {
       location,
       budget,
       interiorTypes: type === "interior" ? interiorTypes : undefined,
+      constructionType: type === "construction" ? constructionType : undefined,
+      developmentType: type === "development" ? developmentType : undefined,
+      advance: type === "development" ? advance : undefined,
+      ration: type === "development" ? ration : undefined,
     });
 
     await newEnquiry.save();
 
-    // Send email notification
-    try {
-      await sendEnquiryNotification(newEnquiry);
-    } catch (emailError) {
-      console.error("Detailed error sending email notification:", emailError);
-      return NextResponse.json(
-        { error: "Error sending email notification" },
-        { status: 500 }
-      );
-    }
+    // // Send email notification
+    // try {
+    //   await sendEnquiryNotification(newEnquiry);
+    // } catch (emailError) {
+    //   console.error("Detailed error sending email notification:", emailError);
+    //   return NextResponse.json(
+    //     { error: "Error sending email notification" },
+    //     { status: 500 }
+    //   );
+    // }
 
     return NextResponse.json(
       { message: "Enquiry submitted successfully" },
