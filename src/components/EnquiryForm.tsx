@@ -235,136 +235,141 @@ const EnquiryForm: React.FC = () => {
   );
 
   return (
-    <Card className="w-full max-w-2xl mx-auto mt-8">
-      <CardContent className="p-6">
-        <Tabs
-          value={activeTab}
-          onValueChange={(value) =>
-            setActiveTab(value as "interior" | "construction" | "development")
-          }
-        >
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="interior">
-              <PaintBucket className="mr-2 h-4 w-4" />
-              Interior
-            </TabsTrigger>
-            <TabsTrigger value="construction">
-              <Building2 className="mr-2 h-4 w-4" />
-              Construction
-            </TabsTrigger>
-            <TabsTrigger value="development">
-              <Home className="mr-2 h-4 w-4" />
-              Development
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="interior">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {renderCommonFields()}
-              <div className="space-y-2">
-                <Label>Interior Types</Label>
-                <div className="grid grid-cols-2 gap-2">
-                  {interiorTypes.map((type) => (
-                    <div key={type.id} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={type.id}
-                        checked={formData.interiorTypes.includes(type.id)}
-                        onCheckedChange={() => handleCheckboxChange(type.id)}
-                      />
-                      <label htmlFor={type.id}>{type.label}</label>
+    <div className="h-[80vh] w-full max-w-2xl sm:dark">
+      <Card className="h-full">
+        <CardContent className="p-6 h-full overflow-y-auto">
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) =>
+              setActiveTab(value as "interior" | "construction" | "development")
+            }
+            className="h-full flex flex-col"
+          >
+            <TabsList className="grid w-full grid-cols-3 mb-4">
+              <TabsTrigger value="interior">
+                <PaintBucket className="mr-2 h-4 w-4" />
+                Interior
+              </TabsTrigger>
+              <TabsTrigger value="construction">
+                <Building2 className="mr-2 h-4 w-4" />
+                Construction
+              </TabsTrigger>
+              <TabsTrigger value="development">
+                <Home className="mr-2 h-4 w-4" />
+                Development
+              </TabsTrigger>
+            </TabsList>
+            <div className="flex-grow overflow-y-auto">
+              <TabsContent value="interior" className="h-full">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {renderCommonFields()}
+                  <div className="space-y-2">
+                    <Label>Interior Types</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {interiorTypes.map((type) => (
+                        <div key={type.id} className="flex items-center space-x-2">
+                          <Checkbox
+                            id={type.id}
+                            checked={formData.interiorTypes.includes(type.id)}
+                            onCheckedChange={() => handleCheckboxChange(type.id)}
+                          />
+                          <label htmlFor={type.id}>{type.label}</label>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-              <Button type="submit" className="w-full">
-                Submit Enquiry
-              </Button>
-            </form>
-          </TabsContent>
-          <TabsContent value="construction">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {renderCommonFields()}
-              <div className="space-y-2">
-                <Label htmlFor="constructionType">Construction Type</Label>
-                <Select
-                  value={formData.constructionType}
-                  onValueChange={(value) =>
-                    handleSelectChange("constructionType", value)
-                  }
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select construction type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {constructionTypes.map((type) => (
-                      <SelectItem key={type.id} value={type.id}>
-                        {type.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button type="submit" className="w-full">
-                Submit Enquiry
-              </Button>
-            </form>
-          </TabsContent>
-          <TabsContent value="development">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {renderCommonFields()}
-              <div className="space-y-2">
-                <Label htmlFor="developmentType">Property Type</Label>
-                <Select
-                  value={formData.developmentType}
-                  onValueChange={(value) =>
-                    handleSelectChange("developmentType", value)
-                  }
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select property type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {developmentTypes.map((type) => (
-                      <SelectItem key={type.id} value={type.id}>
-                        {type.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="advance">Advance</Label>
-                  <IconInput
-                    id="advance"
-                    name="advance"
-                    type="number"
-                    value={formData.advance}
-                    onChange={handleInputChange}
-                    required
-                    icon={<FaRupeeSign className="h-4 w-4" />}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="ratio">Ration</Label>
-                  <IconInput
-                    id="ration"
-                    name="ration"
-                    value={formData.ration}
-                    onChange={handleInputChange}
-                    required
-                    icon={<Ruler className="h-4 w-4" />}
-                  />
-                </div>
-              </div>
-              <Button type="submit" className="w-full">
-                Submit Enquiry
-              </Button>
-            </form>
-          </TabsContent>
-        </Tabs>
-      </CardContent>
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Submit Enquiry
+                  </Button>
+                </form>
+              </TabsContent>
+              <TabsContent value="construction">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {renderCommonFields()}
+                  <div className="space-y-2">
+                    <Label htmlFor="constructionType">Construction Type</Label>
+                    <Select
+                      value={formData.constructionType}
+                      onValueChange={(value) =>
+                        handleSelectChange("constructionType", value)
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select construction type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {constructionTypes.map((type) => (
+                          <SelectItem key={type.id} value={type.id}>
+                            {type.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Submit Enquiry
+                  </Button>
+                </form>
+              </TabsContent>
+              <TabsContent value="development">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {renderCommonFields()}
+                  <div className="space-y-2">
+                    <Label htmlFor="developmentType">Property Type</Label>
+                    <Select
+                      value={formData.developmentType}
+                      onValueChange={(value) =>
+                        handleSelectChange("developmentType", value)
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select property type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {developmentTypes.map((type) => (
+                          <SelectItem key={type.id} value={type.id}>
+                            {type.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="advance">Advance</Label>
+                      <IconInput
+                        id="advance"
+                        name="advance"
+                        type="number"
+                        value={formData.advance}
+                        onChange={handleInputChange}
+                        required
+                        icon={<FaRupeeSign className="h-4 w-4" />}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="ratio">Ration</Label>
+                      <IconInput
+                        id="ration"
+                        name="ration"
+                        value={formData.ration}
+                        onChange={handleInputChange}
+                        required
+                        icon={<Ruler className="h-4 w-4" />}
+                      />
+                    </div>
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Submit Enquiry
+                  </Button>
+                </form>
+              </TabsContent>
+            </div>
+          </Tabs>
+        </CardContent>
+      </Card>
       <Toaster />
-    </Card>
+    </div>
   );
 };
 

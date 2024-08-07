@@ -26,6 +26,7 @@ import MaterialOptions from "@/components/Pacakage";
 import RequirementsForm from "@/components/RequirementForm";
 import Navbar from "@/components/Navbar";
 import Introduction from "@/components/Introduction";
+import EnquiryForm from "@/components/EnquiryForm";
 
 const properties = [
   {
@@ -128,7 +129,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col flex-grow">
           {/* RequirementsForm for large screens */}
           <div className="hidden lg:block mt-24 ml-9">
-            <RequirementsForm />
+            <EnquiryForm />
           </div>
 
           {/* Content for small screens */}
@@ -155,7 +156,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <RequirementsForm />
+            <EnquiryForm />
           </motion.div>
         </section>
 

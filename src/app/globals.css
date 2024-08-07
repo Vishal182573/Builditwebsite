@@ -73,3 +73,8 @@
     border-color: var(--border);
   }
 }
+@media (min-width: 1024px) {
+  :root {
+    color-scheme: dark;
+  }
+}
