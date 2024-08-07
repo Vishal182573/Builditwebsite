@@ -68,7 +68,7 @@ export default function AboutPage() {
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Image
-                src="/buildit.png"
+                src="/villa.avif"
                 alt="BUILDIT team at work"
                 width={600}
                 height={400}
