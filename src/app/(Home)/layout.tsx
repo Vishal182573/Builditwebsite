@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import NavbarWithoutDark from "@/components/NavbarWithoutdark";
 
 export default function RootLayout({

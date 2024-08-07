@@ -114,23 +114,43 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <section className="relative h-screen w-full overflow-hidden">
-        {images.map((src, index) => (
-          <Image
-            key={src}
-            src={src}
-            alt={`Real estate image ${index + 1}`}
-            layout="fill"
-            objectFit="cover"
-            className={`transition-opacity duration-1000 ${index === currentImage ? 'opacity-100' : 'opacity-0'
-              }`}
-          />
-        ))}
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <div className="relative z-10 hidden lg:block mt-28 ml-9">
-          <RequirementsForm />
-        </div>
-      </section>
+      <section className="relative min-h-screen w-full overflow-hidden flex flex-col">
+  {images.map((src, index) => (
+    <Image
+      key={src}
+      src={src}
+      alt={`Real estate image ${index + 1}`}
+      layout="fill"
+      objectFit="cover"
+      className={`transition-opacity duration-1000 ${
+        index === currentImage ? 'opacity-100' : 'opacity-0'
+      }`}
+    />
+  ))}
+  <div className="absolute inset-0 bg-black bg-opacity-50" />
+  
+  <div className="relative z-10 flex flex-col flex-grow">
+
+    {/* RequirementsForm for large screens */}
+    <div className="hidden lg:block mt-24 ml-9">
+      <RequirementsForm />
+    </div>
+
+    {/* Content for small screens */}
+    <div className="lg:hidden flex-grow flex flex-col justify-end p-4">
+      <Link href={"/properties"}>
+      <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg mb-4" >
+        Search Properties
+      </button>
+      </Link>
+      <Link href={"/blog"}>
+      <button className="w-full bg-white text-blue-600 py-3 px-6 rounded-lg mb-4" >
+        Blogs
+      </button>
+      </Link>
+    </div>
+  </div>
+</section>
       <main className=" mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <section className="mb-24 px-4 sm:px-6 lg:px-8">
           <motion.div
