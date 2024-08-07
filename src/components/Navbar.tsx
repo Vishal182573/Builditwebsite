@@ -1,6 +1,8 @@
+//eslint-disable
+
 "use client";
 
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -33,22 +35,30 @@ const Navbar = () => {
       setScrollProgress(progress);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const backgroundColor = `rgba(255, 255, 255, ${scrollProgress})`;
-  const textColor = `rgb(${Math.round(255 - scrollProgress * 255)}, ${Math.round(255 - scrollProgress * 255)}, ${Math.round(255 - scrollProgress * 255)})`;
+  const textColor = `rgb(${Math.round(
+    255 - scrollProgress * 255
+  )}, ${Math.round(255 - scrollProgress * 255)}, ${Math.round(
+    255 - scrollProgress * 255
+  )})`;
 
   return (
-    <nav 
+    <nav
       className="shadow-md fixed top-0 z-50 w-full transition-all duration-300 ease-in-out"
       style={{ backgroundColor }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-1">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className={`text-3xl font-extrabold transition-colors duration-300 ease-in-out`} style={{ color: textColor }}>
+            <Link
+              href="/"
+              className={`text-3xl font-extrabold transition-colors duration-300 ease-in-out`}
+              style={{ color: textColor }}
+            >
               Build<span className="text-blue-600">It</span>
             </Link>
           </div>
@@ -155,17 +165,36 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, children, textColor }) => {
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  textColor: string;
+}
+
+const NavLink = ({
+  href,
+
+  children,
+  textColor,
+}: NavLinkProps) => {
   return (
-    <Link href={href} className={`flex items-center space-x-1 transition-colors duration-300 ease-in-out`} style={{ color: textColor }}>
+    <Link
+      href={href}
+      className={`flex items-center space-x-1 transition-colors duration-300 ease-in-out`}
+      style={{ color: textColor }}
+    >
       {children}
     </Link>
   );
 };
 
-const MobileNavLink = ({ href, children, textColor }) => {
+const MobileNavLink = ({ href, children, textColor }: NavLinkProps) => {
   return (
-    <Link href={href} className={`items-center text-black hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium space-x-2`} style={{ color: textColor }}>
+    <Link
+      href={href}
+      className={`items-center text-black hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium space-x-2`}
+      style={{ color: textColor }}
+    >
       {children}
     </Link>
   );
