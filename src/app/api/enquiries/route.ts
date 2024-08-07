@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/mongodb";
-import Enquiry from "@/models/enquiry";
-import { sendEnquiryNotification } from "@/lib/EmailService";
-import { isAuthenticated } from "@/lib/auth";
-
+import dbConnect from "../../../lib/mongodb";
+import Enquiry from "../../../models/enquiry";
+import { sendEnquiryNotification } from "../../../lib/EmailService";
+import { isAuthenticated } from "../../../lib/auth";
 export async function POST(request: Request) {
   try {
     await dbConnect();
